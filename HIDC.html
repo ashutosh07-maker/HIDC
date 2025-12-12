@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare Infrastructure Development Centre</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary: #0ea5a4; /* teal */
+      --accent: #0369a1;  /* deep blue */
+      --muted: #6b7280;
+    }
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(180deg,#f8fafc 0%, #ffffff 100%); }
+
+    /* HERO background and overlay */
+    .hero-bg{
+      background-image: url('https://images.unsplash.com/photo-1582719478250-01b0f04f2c35?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover; background-position: center; position: relative;
+    }
+    .hero-overlay{ background: linear-gradient(180deg, rgba(3,105,161,0.55), rgba(14,165,164,0.15)); }
+
+    /* polished glass card */
+    .card { background: rgba(255,255,255,0.86); box-shadow: 0 10px 30px rgba(2,6,23,0.08); border-radius: 14px; }
+
+    /* section transitions */
+    .spa-section { transition: opacity .45s ease, transform .45s ease; opacity: 0; transform: translateY(10px); height: 0; overflow: hidden; }
+    .spa-section.active { opacity: 1; transform: translateY(0); height: auto; }
+
+    /* navbar */
+    nav a.active { color: var(--accent); font-weight: 600; }
+
+    /* footer */
+    .social-btn{ width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; }
+
+    /* mobile improvements */
+    @media (max-width: 768px){ .hero-heading{ font-size: 28px; } }
+  </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#home" id="nav-logo" class="flex items-center gap-3" data-target="home">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="rounded-full bg-gradient-to-br from-teal-500 to-blue-600 p-1">
+          <path d="M12 2v20M2 12h20" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div class="text-lg font-bold text-slate-800">HIDC</div>
+          <div class="text-xs text-gray-500 -mt-1">Healthcare Infrastructure</div>
+        </div>
+      </a>
+
+      <ul id="nav-desktop" class="hidden md:flex items-center space-x-6 text-sm">
+        <li><a href="#home" data-target="home" class="nav-link">Home</a></li>
+        <li><a href="#about" data-target="about" class="nav-link">About</a></li>
+        <li><a href="#services" data-target="services" class="nav-link">Services</a></li>
+        <li><a href="#aim" data-target="aim" class="nav-link">Aim</a></li>
+        <li><a href="#objectives" data-target="objectives" class="nav-link">Objectives</a></li>
+        <li><a href="#contact" data-target="contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" data-target="contact" class="hidden md:inline-block bg-gradient-to-r from-teal-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm shadow">Get Quote</a>
+        <button id="mobileToggle" class="md:hidden text-2xl">☰</button>
+      </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden bg-white text-center py-4 md:hidden">
+      <a href="#" data-target="home" class="block py-2 mobile-link">Home</a>
+      <a href="#" data-target="about" class="block py-2 mobile-link">About</a>
+      <a href="#" data-target="services" class="block py-2 mobile-link">Services</a>
+      <a href="#" data-target="aim" class="block py-2 mobile-link">Aim</a>
+      <a href="#" data-target="objectives" class="block py-2 mobile-link">Objectives</a>
+      <a href="#" data-target="contact" class="block py-2 mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT: SPA SECTIONS -->
+  <main class="pt-24">
+
+    <!-- HOME -->
+    <section id="home" class="spa-section active hero-bg hero-overlay min-h-[70vh] flex items-center justify-center text-white px-6" role="region">
+      <div class="max-w-4xl text-center" data-aos="fade-up">
+        <h1 class="hero-heading text-4xl md:text-5xl font-bold mb-4">Healthcare Infrastructure Development Centre</h1>
+        <p class="text-lg md:text-xl font-light max-w-3xl mx-auto">Designing, advising & implementing sustainable healthcare infrastructure for hospitals, labs and public health facilities worldwide.</p>
+        <div class="mt-8 flex gap-4 justify-center">
+          <button data-target="services" class="nav-cta bg-white text-teal-700 px-6 py-3 rounded-full font-semibold shadow cta-bounce">Our Services</button>
+          <button data-target="contact" class="nav-cta bg-transparent border border-white px-6 py-3 rounded-full font-semibold">Contact Us</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="spa-section py-20 px-6" role="region" aria-hidden="true">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div class="card p-8" data-aos="fade-right">
+          <h2 class="text-3xl font-bold mb-4">About Us</h2>
+          <p class="text-gray-700 leading-relaxed">The Healthcare Infrastructure Development Centre (HIDC) integrates planning, engineering, operations and training to create healthcare environments that are resilient, patient-centred and cost-effective. We partner with governments, hospitals and private organisations worldwide.</p>
+        </div>
+        <div data-aos="fade-left">
+          <img src="https://images.unsplash.com/photo-1580281657527-47d88a3b0a6b?auto=format&fit=crop&w=1000&q=80" alt="Hospital team" class="rounded-xl shadow-lg w-full object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="spa-section py-16 px-6 bg-gray-50" role="region" aria-hidden="true">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-10" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold">Our Services</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto mt-3">End-to-end consultancy for healthcare infrastructure — planning, construction, operations and compliance.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Service Card -->
+          <div class="card p-6" data-aos="zoom-in">
+            <div class="h-40 rounded-md overflow-hidden mb-4">
+              <img src="https://images.unsplash.com/photo-1581091012184-7b1e0f3f5d4b?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Planning" />
+            </div>
+            <h3 class="font-semibold text-xl">Master Planning & Design</h3>
+            <p class="text-gray-600 mt-2">Site evaluation, master planning, zoning and phased development roadmaps that minimise disruption.</p>
+          </div>
+
+          <div class="card p-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="h-40 rounded-md overflow-hidden mb-4">
+              <img src="https://images.unsplash.com/photo-1581092580495-1b9a7f5a9d3e?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Construction" />
+            </div>
+            <h3 class="font-semibold text-xl">Construction & Vendor Rating</h3>
+            <p class="text-gray-600 mt-2">Tendering support, vendor evaluation, quality assurance and construction oversight.</p>
+          </div>
+
+          <div class="card p-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="h-40 rounded-md overflow-hidden mb-4">
+              <img src="https://images.unsplash.com/photo-1580281657359-7c06b1c3f9f6?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Operations" />
+            </div>
+            <h3 class="font-semibold text-xl">Operations & Maintenance</h3>
+            <p class="text-gray-600 mt-2">Operational manuals, maintenance planning, training and performance monitoring.</p>
+          </div>
+
+          <div class="card p-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="h-40 rounded-md overflow-hidden mb-4">
+              <img src="https://images.unsplash.com/photo-1582719478250-01b0f04f2c35?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Waste" />
+            </div>
+            <h3 class="font-semibold text-xl">Biomedical & Waste Management</h3>
+            <p class="text-gray-600 mt-2">Safe handling, segregation and disposal systems for medical, biomedical and radioactive waste.</p>
+          </div>
+
+          <div class="card p-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="h-40 rounded-md overflow-hidden mb-4">
+              <img src="https://images.unsplash.com/photo-1581093588401-94b4b2d0c3f1?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Training" />
+            </div>
+            <h3 class="font-semibold text-xl">Training & Capacity Building</h3>
+            <p class="text-gray-600 mt-2">Custom programs for paramedics, maintenance staff and hospital administrators.</p>
+          </div>
+
+          <div class="card p-6" data-aos="zoom-in" data-aos-delay="500">
+            <div class="h-40 rounded-md overflow-hidden mb-4">
+              <img src="https://images.unsplash.com/photo-1584532706152-2bf5d0b8b41a?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Compliance" />
+            </div>
+            <h3 class="font-semibold text-xl">Compliance & Accreditation Support</h3>
+            <p class="text-gray-600 mt-2">Assist in grading, accreditation and regulatory compliance for national & international standards.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AIM & OBJECTIVES (combined card layout) -->
+    <section id="aim" class="spa-section py-20 px-6" role="region" aria-hidden="true">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+        <div class="card p-8" data-aos="fade-right">
+          <h2 class="text-3xl font-bold mb-4">Our Aim</h2>
+          <ul class="text-gray-700 space-y-3">
+            <li>• Advise on nurturing & developing healthcare infrastructure</li>
+            <li>• Develop paramedics and maintenance staff</li>
+            <li>• Introduce modern systems for upkeep and operations</li>
+            <li>• Rate construction agencies and suppliers</li>
+            <li>• Manage medical and biomedical waste</li>
+          </ul>
+        </div>
+
+        <div class="card p-8" data-aos="fade-left">
+          <h2 class="text-3xl font-bold mb-4">Objectives</h2>
+          <ul class="text-gray-700 space-y-3">
+            <li>• Central organisation for infrastructure providers</li>
+            <li>• Learner-centred practical knowledge</li>
+            <li>• Evaluation & grading of providers</li>
+            <li>• Business models for efficient facility development</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="spa-section py-20 px-6 bg-gray-50" role="region" aria-hidden="true">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+          <p class="text-gray-600 mb-6">Tell us about your project — we'll provide a customised plan and estimate. We work across the globe.</p>
+          <ul class="text-gray-700 space-y-2">
+            <li><strong>Office:</strong> CIDC / Healthcare Infrastructure Development Centre</li>
+            <li><strong>Email:</strong> info@hidc.example (replace with real email)</li>
+            <li><strong>Phone:</strong> +91-XXXXXXXXXX</li>
+          </ul>
+
+          <div class="flex gap-3 mt-6">
+            <a href="#" class="social-btn bg-blue-600 text-white">f</a>
+            <a href="#" class="social-btn bg-sky-500 text-white">in</a>
+            <a href="#" class="social-btn bg-red-500 text-white">Y</a>
+          </div>
+        </div>
+
+        <form id="contactForm" action="<?php echo admin_url('admin-post.php'); ?>" method="POST" class="card p-6" data-aos="fade-left">
+          <input type="hidden" name="action" value="hidc_contact_form">
+          <div class="mb-3">
+            <label class="block text-sm text-gray-700">Name</label>
+            <input name="name" required class="w-full mt-2 p-3 border rounded" />
+          </div>
+          <div class="mb-3">
+            <label class="block text-sm text-gray-700">Email</label>
+            <input name="email" type="email" required class="w-full mt-2 p-3 border rounded" />
+          </div>
+          <div class="mb-3">
+            <label class="block text-sm text-gray-700">Message</label>
+            <textarea name="message" rows="5" required class="w-full mt-2 p-3 border rounded"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-blue-600 text-white py-3 rounded-full">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- WHATSAPP FLOAT BUTTON -->
+  <a class="fixed right-6 bottom-6 z-50" href="https://wa.me/YOUR_NUMBER" target="_blank" aria-label="Chat on WhatsApp">
+    <div class="bg-green-500 p-3 rounded-full shadow-lg hover:scale-105 transition-transform">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.52 3.478A11.862 11.862 0 0012 0C5.373 0 0 5.373 0 12c0 2.114.55 4.087 1.596 5.86L0 24l6.357-1.28A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12 0-3.197-1.241-6.186-3.48-8.522z" fill="#fff"/>
+        <path d="M17.2 14.3c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15s-.77.97-.95 1.17c-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.18-.31-.02-.48.13-.63.12-.12.27-.31.4-.47.14-.16.18-.26.28-.43.1-.16.05-.3-.02-.45-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.66-.51-.17-.01-.37-.01-.57-.01-.2 0-.45.07-.69.33-.24.25-.92.9-.92 2.2 0 1.3.94 2.56 1.07 2.74.12.18 1.85 2.92 4.49 3.97 2.65 1.06 2.65.71 3.12.67.47-.04 1.52-.62 1.74-1.22.22-.6.22-1.11.15-1.22-.07-.12-.28-.18-.59-.33z" fill="#25D366"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t mt-12">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
+      <div>
+        <h3 class="text-xl font-bold">HIDC</h3>
+        <p class="text-gray-500 mt-2">Creating resilient, efficient and people-centred healthcare infrastructure.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Quick Links</h4>
+        <ul class="mt-3 text-gray-600 space-y-2">
+          <li><a href="#" data-target="services" class="footer-link">Services</a></li>
+          <li><a href="#" data-target="aim" class="footer-link">Aim</a></li>
+          <li><a href="#" data-target="objectives" class="footer-link">Objectives</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Contact</h4>
+        <p class="text-gray-600 mt-3">Email: info@hidc.example</p>
+        <p class="text-gray-600">Phone: +91-XXXXXXXXXX</p>
+        <div class="flex gap-3 mt-4">
+          <a href="#" class="social-btn bg-blue-600 text-white">f</a>
+          <a href="#" class="social-btn bg-sky-500 text-white">in</a>
+          <a href="#" class="social-btn bg-red-500 text-white">Y</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-sm text-gray-500 pb-6">© 2025 Healthcare Infrastructure Development Centre. All rights reserved.</div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // SPA navigation logic (Option B) with smooth fade/slide transitions and preserved layout
+    (function(){
+      const sections = Array.from(document.querySelectorAll('.spa-section'));
+      const navLinks = document.querySelectorAll('.nav-link');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      const CTAbuttons = document.querySelectorAll('.nav-cta');
+      const footerLinks = document.querySelectorAll('.footer-link');
+      const logo = document.getElementById('nav-logo');
+      const mobileToggle = document.getElementById('mobileToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      function hideAll(){
+        sections.forEach(s => {
+          s.classList.remove('active');
+          s.setAttribute('aria-hidden','true');
+        });
+      }
+
+      function show(id){
+        hideAll();
+        const target = document.getElementById(id);
+        if(!target) return;
+        target.classList.add('active');
+        target.removeAttribute('aria-hidden');
+
+        // refresh AOS animations for visible elements
+        setTimeout(()=>{ AOS.refresh(); }, 300);
+
+        // update nav active state
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('[data-target]').forEach(a => {
+          if (a.getAttribute('data-target') === id) a.classList.add('active');
+        });
+
+        // close mobile menu if open
+        if(!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+
+        // scroll to top of the section smoothly (helps mobile)
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // initial state: show home
+      show('home');
+
+      // desktop nav
+      navLinks.forEach(link => {
+        link.addEventListener('click', e => { e.preventDefault(); show(link.getAttribute('data-target')); });
+      });
+
+      // mobile nav
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', e => { e.preventDefault(); show(link.getAttribute('data-target')); });
+      });
+
+      // footer links
+      footerLinks.forEach(link => {
+        link.addEventListener('click', e => { e.preventDefault(); show(link.getAttribute('data-target')); });
+      });
+
+      // CTA buttons inside page
+      CTAbuttons.forEach(btn => btn.addEventListener('click', e => { show(btn.getAttribute('data-target')); }));
+
+      // logo click
+      logo.addEventListener('click', e => { e.preventDefault(); show('home'); });
+
+      // mobile toggle
+      mobileToggle.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+
+      // close mobile menu clicking outside (small improvement)
+      document.addEventListener('click', (e)=>{
+        if(!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target) && !mobileMenu.classList.contains('hidden')){
+          mobileMenu.classList.add('hidden');
+        }
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
